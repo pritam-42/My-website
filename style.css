@@ -850,6 +850,13 @@ section {
     color: var(--primary);
 }
 
+/* Debugging/fallback: ensure skill cards are visible if JS animation fails */
+.skills-section .skill-card {
+    opacity: 1 !important;
+    transform: none !important;
+    display: block !important;
+}
+
 .tech-stack {
     margin-top: 4rem;
     text-align: center;
