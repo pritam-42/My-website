@@ -2,103 +2,295 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRITAM</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pritam | Personal Website</title>
 
-        h1 {
-            font-family: "Baloo Bhai 2", "sans-serif";
-            color: brown;
-            background-color: antiquewhite;
-            font-weight: 750;
-            text-decoration: underline;
-        }
+  <!-- Google Fonts (Professional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
-        h2 {
-            font-family: "Baloo Bhai 2", "sans-serif";
-            color: rgb(201, 15, 33);
-            background-color: rgb(244, 232, 2);
-            font-weight: 700;
-            text-decoration: underline;
-            text-decoration-style: dashed;
+  <style>
+    /* ====== GLOBAL RESET ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        p {
-            font-family: "Poppins", sans-serif;
-            color: rgb(66, 122, 131);
-            font-weight: 600;
+    body {
+      font-family: "Inter", "Poppins", sans-serif;
+      background: #0b1220;
+      color: #e9eefc;
+      line-height: 1.6;
+    }
 
-        }
+    /* ====== CONTAINER ====== */
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+      padding: 40px 0;
+    }
 
-        .pom1 {
-            font-family: "Poppins", sans-serif;
-            color: rgb(151, 40, 155);
-            border: 9px solid #ef7128;
-            background-color: rgb(159, 233, 11);
+    /* ====== HEADER ====== */
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      animation: fadeDown 0.9s ease forwards;
+    }
 
-        }
+    header h1 {
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
 
-        .POM2 {
-            font-family: "Poppins", sans-serif;
+    header p {
+      margin-top: 12px;
+      font-size: clamp(14px, 2vw, 18px);
+      color: rgba(233, 238, 252, 0.75);
+      max-width: 750px;
+      margin-inline: auto;
+    }
 
-            a:visited {
-                color: rgb(10, 254, 148);
-            }
-            a:active{
-                background-color: blueviolet;
-            }
-        }
-    </style>
+    /* ====== SECTION STYLE ====== */
+    section {
+      margin-top: 30px;
+      padding: 28px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    section h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    section p {
+      font-size: 15px;
+      color: rgba(233, 238, 252, 0.82);
+    }
+
+    /* ====== LIST STYLE ====== */
+    ol {
+      margin-top: 12px;
+      padding-left: 20px;
+    }
+
+    ol li {
+      margin: 8px 0;
+      font-size: 15px;
+      color: rgba(233, 238, 252, 0.88);
+    }
+
+    /* ====== GRID FOR MEDIA ====== */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .media-box {
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: transform 0.25s ease;
+    }
+
+    .media-box:hover {
+      transform: translateY(-4px);
+    }
+
+    audio,
+    video {
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 12px;
+      outline: none;
+    }
+
+    /* ====== LINKS ====== */
+    .links {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .links a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #e9eefc;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    .links a:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .links a span {
+      opacity: 0.65;
+      font-size: 14px;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: rgba(233, 238, 252, 0.55);
+      font-size: 14px;
+    }
+
+    /* ====== ANIMATIONS ====== */
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 800px) {
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <DIV>
-        <h1>WELCOME TO PRITAM WEBSITE</h1>
-        <H2>ABOUT</H2>
-        <p>My name is Pritam Debnath.I live in Purba Bardhaman.I have hobby like Badminton,playing vedio game etc.I like
-            to learn new things and improve myself everyday.In my free time i spending with my family and friends.</p>
-        <h2>I HAVE LEARNED</h2>
-        <ol class="pom1">
-            <li>C Progamming</li>
-            <li>Web Development</li>
-            <li>C++</li>
-        </ol>
-        <h2>MY JOURNEY</h2>
-        <P>I studied from Class 1 to Class 7 at Holy Child Athletic School, which was a private school near my home in
-            Nadanghat More. After that, I completed Class 8 to Class 12 at Samudragarh High School, a government school
-            also located in the same area.
-            During my school years, I enjoyed my free time and learned many new things, both inside and outside the
-            classroom. In Class 10 and Class 12, I had seven teachers who were very supportive and taught me well. I
-            scored 536 marks in my Class 10 board exam and 422 marks in Class 12.
-            After completing school, I dreamed of becoming a pilot. However, it was not possible for me at that time.
-            Currently, I am pursuing a Bachelor of Technology (B.Tech) degree at Adamas University. I’m working hard to
-            build my skills and achieve success in my career.</P>
 
-    </DIV>
-    <DIV>
-        <h2>MY FAVORITE MUSIC</h2>
-        <AUDIo src="128-Mere Mehboob Mere Sanam - Bad Newz 128 Kbps.mp3" controls></AUDIo>
-        <h2>MY FAVORITE VIDEO</h2>
-        <video height="200" src="6989135-hd_1920_1080_25fps.mp4" controls></video>
-    </DIV>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <h1>Welcome to Pritam’s Website</h1>
+      <p>
+        Hi, I’m Pritam Debnath — a B.Tech student at Adamas University. I enjoy learning new things, improving myself,
+        and exploring technology.
+      </p>
+    </header>
+
+    <!-- ABOUT -->
+    <section>
+      <h2>About Me</h2>
+      <p>
+        My name is Pritam Debnath. I live in Purba Bardhaman. My hobbies include playing badminton, video games, and
+        learning new skills. I love spending time with my family and friends.
+      </p>
+    </section>
+
+    <!-- LEARNED -->
+    <section>
+      <h2>I Have Learned</h2>
+      <ol>
+        <li>C Programming</li>
+        <li>Web Development</li>
+        <li>C++</li>
+      </ol>
+    </section>
+
+    <!-- JOURNEY -->
+    <section>
+      <h2>My Journey</h2>
+      <p>
+        I studied from Class 1 to Class 7 at Holy Child Athletic School near Nadanghat More.
+        Then I completed Class 8 to Class 12 at Samudragarh High School.
+        <br><br>
+        During my school years, I learned many things inside and outside the classroom. My teachers supported me a lot.
+        I scored 536 marks in my Class 10 board exam and 422 marks in my Class 12 board exam.
+        <br><br>
+        After school, I dreamed of becoming a pilot, but it wasn’t possible at that time.
+        Currently, I’m pursuing a Bachelor of Technology (B.Tech) at Adamas University and working hard to build my
+        skills.
+      </p>
+    </section>
+
+    <!-- MEDIA -->
+    <section>
+      <h2>My Favorites</h2>
+
+      <div class="media-grid">
+        <div class="media-box">
+          <h2 style="font-size:16px;">Favorite Music</h2>
+          <audio src="128-Mere Mehboob Mere Sanam - Bad Newz 128 Kbps.mp3" controls></audio>
+        </div>
+
+        <div class="media-box">
+          <h2 style="font-size:16px;">Favorite Video</h2>
+          <video src="6989135-hd_1920_1080_25fps.mp4" controls></video>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section>
+      <h2>Quick Links</h2>
+      <div class="links">
+        <a href="https://chatgpt.com/" target="_blank">
+          Open ChatGPT <span>↗</span>
+        </a>
+        <a href="https://www.google.com/" target="_blank">
+          Open Google <span>↗</span>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank">
+          Open YouTube <span>↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      © 2026 Pritam Debnath • Made with ❤️
+    </footer>
+
+  </div>
+
 </body>
-<DIV>
-    <h2>THERE ARE SOME LINKS TO OPEN APP DIRECTLY</h2>
-    <OL class="POM2">
-        <LI>
-            <a href="https://chatgpt.com/">TO OPEN CHATGPT</a>
-        </LI>
-        <LI>
-            <a href="https://www.google.com/">OPEN GOOGLE</a>
-        </LI>
-        <LI>
-            <a href="https://www.youtube.com/">OPEN YOUTUBE</a>
-        </LI>
-    </OL>
-</DIV>
 
 </html>
