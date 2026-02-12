@@ -6,290 +6,211 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pritam | Personal Website</title>
 
-  <!-- Google Fonts (Professional) -->
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
 
+  <!-- AOS Animation CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <style>
-    /* ====== GLOBAL RESET ====== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: "Inter", "Poppins", sans-serif;
-      background: #0b1220;
-      color: #e9eefc;
-      line-height: 1.6;
+      font-family: "Poppins", sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #0b1220);
+      color: white;
     }
 
-    /* ====== CONTAINER ====== */
-    .container {
-      width: min(1100px, 92%);
-      margin: auto;
-      padding: 40px 0;
-    }
-
-    /* ====== HEADER ====== */
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    /* Glass Card Style */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      animation: fadeDown 0.9s ease forwards;
+      border-radius: 18px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35);
+      transition: 0.3s ease;
     }
 
-    header h1 {
-      font-size: clamp(26px, 4vw, 44px);
+    .glass-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Heading */
+    .main-title {
+      font-size: clamp(26px, 4vw, 48px);
       font-weight: 700;
       letter-spacing: 1px;
     }
 
-    header p {
-      margin-top: 12px;
-      font-size: clamp(14px, 2vw, 18px);
-      color: rgba(233, 238, 252, 0.75);
+    .subtitle {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 16px;
       max-width: 750px;
-      margin-inline: auto;
+      margin: auto;
     }
 
-    /* ====== SECTION STYLE ====== */
-    section {
-      margin-top: 30px;
-      padding: 28px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      animation: fadeUp 1s ease forwards;
-    }
-
-    section h2 {
-      font-size: 20px;
+    /* Button style */
+    .btn-gradient {
+      background: linear-gradient(135deg, #6366f1, #22c55e);
+      border: none;
+      color: white;
       font-weight: 600;
-      margin-bottom: 14px;
-      color: #ffffff;
+      border-radius: 14px;
+      padding: 12px 18px;
+      transition: 0.3s ease;
     }
 
-    section p {
-      font-size: 15px;
-      color: rgba(233, 238, 252, 0.82);
+    .btn-gradient:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
     }
 
-    /* ====== LIST STYLE ====== */
-    ol {
-      margin-top: 12px;
-      padding-left: 20px;
-    }
-
-    ol li {
-      margin: 8px 0;
-      font-size: 15px;
-      color: rgba(233, 238, 252, 0.88);
-    }
-
-    /* ====== GRID FOR MEDIA ====== */
-    .media-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 14px;
-    }
-
-    .media-box {
-      padding: 18px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: transform 0.25s ease;
-    }
-
-    .media-box:hover {
-      transform: translateY(-4px);
-    }
-
-    audio,
-    video {
-      width: 100%;
-      margin-top: 10px;
-      border-radius: 12px;
-      outline: none;
-    }
-
-    /* ====== LINKS ====== */
-    .links {
-      display: grid;
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .links a {
+    /* Links */
+    .quick-link {
+      text-decoration: none;
+      color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 14px 16px;
       border-radius: 14px;
-      text-decoration: none;
-      font-weight: 500;
-      color: #e9eefc;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.25s ease;
-    }
-
-    .links a:hover {
-      transform: translateY(-3px);
       background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: 0.25s ease;
     }
 
-    .links a span {
-      opacity: 0.65;
-      font-size: 14px;
+    .quick-link:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.12);
     }
 
-    /* ====== FOOTER ====== */
+    audio,
+    video {
+      width: 100%;
+      border-radius: 14px;
+      outline: none;
+    }
+
     footer {
-      text-align: center;
-      margin-top: 30px;
-      color: rgba(233, 238, 252, 0.55);
+      color: rgba(255, 255, 255, 0.6);
       font-size: 14px;
-    }
-
-    /* ====== ANIMATIONS ====== */
-    @keyframes fadeDown {
-      from {
-        opacity: 0;
-        transform: translateY(-18px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ====== RESPONSIVE ====== */
-    @media (max-width: 800px) {
-      .media-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 20px;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <div class="container py-5">
 
-    <!-- HEADER -->
-    <header>
-      <h1>Welcome to Pritam’s Website</h1>
-      <p>
-        Hi, I’m Pritam Debnath — a B.Tech student at Adamas University. I enjoy learning new things, improving myself,
-        and exploring technology.
+    <!-- HERO SECTION -->
+    <div class="glass-card p-5 text-center mb-4" data-aos="fade-down">
+      <h1 class="main-title">Welcome to Pritam’s Website</h1>
+      <p class="subtitle mt-3">
+        Hi, I’m Pritam Debnath — a B.Tech student at Adamas University.
+        I love learning new skills, improving myself, and exploring technology.
       </p>
-    </header>
+
+      <div class="mt-4">
+        <a href="#about" class="btn btn-gradient">Explore More</a>
+      </div>
+    </div>
 
     <!-- ABOUT -->
-    <section>
-      <h2>About Me</h2>
-      <p>
-        My name is Pritam Debnath. I live in Purba Bardhaman. My hobbies include playing badminton, video games, and
-        learning new skills. I love spending time with my family and friends.
+    <div id="about" class="glass-card p-4 mb-4" data-aos="fade-up">
+      <h2 class="h4 fw-semibold mb-3">About Me</h2>
+      <p class="mb-0">
+        My name is Pritam Debnath. I live in Purba Bardhaman.
+        My hobbies include playing badminton, video games, and learning new things.
+        I also enjoy spending time with my family and friends.
       </p>
-    </section>
+    </div>
 
-    <!-- LEARNED -->
-    <section>
-      <h2>I Have Learned</h2>
-      <ol>
+    <!-- SKILLS -->
+    <div class="glass-card p-4 mb-4" data-aos="fade-up" data-aos-delay="150">
+      <h2 class="h4 fw-semibold mb-3">I Have Learned</h2>
+      <ol class="mb-0">
         <li>C Programming</li>
         <li>Web Development</li>
         <li>C++</li>
       </ol>
-    </section>
+    </div>
 
     <!-- JOURNEY -->
-    <section>
-      <h2>My Journey</h2>
-      <p>
+    <div class="glass-card p-4 mb-4" data-aos="fade-up" data-aos-delay="250">
+      <h2 class="h4 fw-semibold mb-3">My Journey</h2>
+      <p class="mb-0">
         I studied from Class 1 to Class 7 at Holy Child Athletic School near Nadanghat More.
-        Then I completed Class 8 to Class 12 at Samudragarh High School.
+        After that, I completed Class 8 to Class 12 at Samudragarh High School.
         <br><br>
-        During my school years, I learned many things inside and outside the classroom. My teachers supported me a lot.
-        I scored 536 marks in my Class 10 board exam and 422 marks in my Class 12 board exam.
+        In Class 10 and Class 12, I had teachers who supported me a lot.
+        I scored 536 marks in Class 10 and 422 marks in Class 12.
         <br><br>
-        After school, I dreamed of becoming a pilot, but it wasn’t possible at that time.
-        Currently, I’m pursuing a Bachelor of Technology (B.Tech) at Adamas University and working hard to build my
-        skills.
+        I once dreamed of becoming a pilot, but it wasn’t possible at that time.
+        Currently, I’m pursuing B.Tech at Adamas University and working hard to build my career.
       </p>
-    </section>
+    </div>
 
     <!-- MEDIA -->
-    <section>
-      <h2>My Favorites</h2>
+    <div class="glass-card p-4 mb-4" data-aos="zoom-in">
+      <h2 class="h4 fw-semibold mb-4">My Favorites</h2>
 
-      <div class="media-grid">
-        <div class="media-box">
-          <h2 style="font-size:16px;">Favorite Music</h2>
-          <audio src="128-Mere Mehboob Mere Sanam - Bad Newz 128 Kbps.mp3" controls></audio>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="p-3 glass-card">
+            <h3 class="h6 fw-semibold">Favorite Music</h3>
+            <audio src="128-Mere Mehboob Mere Sanam - Bad Newz 128 Kbps.mp3" controls></audio>
+          </div>
         </div>
 
-        <div class="media-box">
-          <h2 style="font-size:16px;">Favorite Video</h2>
-          <video src="6989135-hd_1920_1080_25fps.mp4" controls></video>
+        <div class="col-md-6">
+          <div class="p-3 glass-card">
+            <h3 class="h6 fw-semibold">Favorite Video</h3>
+            <video src="6989135-hd_1920_1080_25fps.mp4" controls></video>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- LINKS -->
-    <section>
-      <h2>Quick Links</h2>
-      <div class="links">
-        <a href="https://chatgpt.com/" target="_blank">
+    <div class="glass-card p-4 mb-4" data-aos="fade-up">
+      <h2 class="h4 fw-semibold mb-3">Quick Links</h2>
+
+      <div class="d-grid gap-3">
+        <a class="quick-link" href="https://chatgpt.com/" target="_blank">
           Open ChatGPT <span>↗</span>
         </a>
-        <a href="https://www.google.com/" target="_blank">
+        <a class="quick-link" href="https://www.google.com/" target="_blank">
           Open Google <span>↗</span>
         </a>
-        <a href="https://www.youtube.com/" target="_blank">
+        <a class="quick-link" href="https://www.youtube.com/" target="_blank">
           Open YouTube <span>↗</span>
         </a>
       </div>
-    </section>
+    </div>
 
     <!-- FOOTER -->
-    <footer>
-      © 2026 Pritam Debnath • Made with ❤️
+    <footer class="text-center mt-4" data-aos="fade-up">
+      © 2026 Pritam Debnath • Built with Bootstrap + ❤️
     </footer>
 
   </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true
+    });
+  </script>
 
 </body>
 
