@@ -573,59 +573,61 @@
     }
     
     // ========================================
-    // Contact Form Validation
+    // Contact Form Validation (guarded)
     // ========================================
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
-    
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        let isValid = true;
-        const formGroups = contactForm.querySelectorAll('.form-group');
-        
-        formGroups.forEach(group => {
-            const input = group.querySelector('input, textarea');
-            const errorMessage = group.querySelector('.error-message');
-            
-            if (!input.value.trim()) {
-                group.classList.add('error');
-                errorMessage.textContent = 'This field is required';
-                isValid = false;
-            } else if (input.type === 'email' && !isValidEmail(input.value)) {
-                group.classList.add('error');
-                errorMessage.textContent = 'Please enter a valid email';
-                isValid = false;
-            } else {
-                group.classList.remove('error');
-                errorMessage.textContent = '';
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            let isValid = true;
+            const formGroups = contactForm.querySelectorAll('.form-group');
+
+            formGroups.forEach(group => {
+                const input = group.querySelector('input, textarea');
+                const errorMessage = group.querySelector('.error-message');
+
+                if (!input.value.trim()) {
+                    group.classList.add('error');
+                    if (errorMessage) errorMessage.textContent = 'This field is required';
+                    isValid = false;
+                } else if (input.type === 'email' && !isValidEmail(input.value)) {
+                    group.classList.add('error');
+                    if (errorMessage) errorMessage.textContent = 'Please enter a valid email';
+                    isValid = false;
+                } else {
+                    group.classList.remove('error');
+                    if (errorMessage) errorMessage.textContent = '';
+                }
+            });
+
+            if (isValid) {
+                // Simulate form submission
+                contactForm.style.display = 'none';
+                if (formSuccess) formSuccess.classList.add('show');
+
+                setTimeout(() => {
+                    contactForm.reset();
+                    contactForm.style.display = 'block';
+                    if (formSuccess) formSuccess.classList.remove('show');
+                }, 3000);
             }
         });
-        
-        if (isValid) {
-            // Simulate form submission
-            contactForm.style.display = 'none';
-            formSuccess.classList.add('show');
-            
-            setTimeout(() => {
-                contactForm.reset();
-                contactForm.style.display = 'block';
-                formSuccess.classList.remove('show');
-            }, 3000);
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         }
-    });
-    
-    function isValidEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-    
-    // Remove error on input
-    contactForm.querySelectorAll('input, textarea').forEach(input => {
-        input.addEventListener('input', () => {
-            const formGroup = input.closest('.form-group');
-            formGroup.classList.remove('error');
+
+        // Remove error on input
+        contactForm.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('input', () => {
+                const formGroup = input.closest('.form-group');
+                if (formGroup) formGroup.classList.remove('error');
+            });
         });
-    });
+    }
     
     // ========================================
     // Scroll to Top Button

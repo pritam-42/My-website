@@ -857,6 +857,13 @@ section {
     display: block !important;
 }
 
+/* Ensure project items are visible if JS animation fails */
+.projects-section .project-item {
+    opacity: 1 !important;
+    transform: none !important;
+    display: block !important;
+}
+
 .tech-stack {
     margin-top: 4rem;
     text-align: center;
